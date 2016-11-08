@@ -1,0 +1,22 @@
+{
+    "name": "glavweb/cms-rest-client",
+    "description": "GLAVWEB.cms Rest Client",
+    "authors": [
+        {
+            "name": "nilov",
+            "email": "nilov@glavweb.ru",
+            "homepage": "http://glavweb.ru"
+        },
+        {
+            "name": "GLAVWEB Community",
+            "homepage": "https://github.com/glavweb/cms-rest-client/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "guzzlehttp/guzzle": "^6.0"
+    },
+    "autoload": {
+        "psr-4": { "Glavweb\\CmsRestClient\\": "" }
+    }
+}
