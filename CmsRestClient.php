@@ -12,6 +12,7 @@
 namespace Glavweb\CmsRestClient;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 /**
  * Class CmsRestClient
@@ -50,9 +51,9 @@ class CmsRestClient
      * @var string
      */
     private static $token = false;
-    
+
     /**
-     * CmsRestClient constructor.
+     * ContentBlockService constructor.
      *
      * @param Client $guzzle
      * @param string $apiBaseUrl
@@ -198,13 +199,18 @@ class CmsRestClient
      */
     public function doValidateToken($token)
     {
-        $response = $this->guzzle->request('GET', $this->url('validate-token'), [
-            'headers' => [
-                'Token' => $token
-            ],
-        ]);
+        try {
+            $response = $this->guzzle->request('GET', $this->url('validate-token'), [
+                'headers' => [
+                    'Token' => $token
+                ],
+            ]);
 
-        return $response->getStatusCode() == 200;
+            return $response->getStatusCode() == 200;
+
+        } catch (ClientException $e) {
+            return false;
+        }
     }
 
     /**
