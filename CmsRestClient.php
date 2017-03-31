@@ -53,7 +53,7 @@ class CmsRestClient
     private static $token = false;
 
     /**
-     * ContentBlockService constructor.
+     * CmsRestClient constructor.
      *
      * @param Client $guzzle
      * @param string $apiBaseUrl
