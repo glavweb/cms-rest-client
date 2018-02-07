@@ -276,7 +276,7 @@ class CmsRestClient
         $token = null;
         if ($response->getStatusCode() == 200) {
             $body = json_decode($response->getBody(), true);
-            $token = isset($body['Token']) ? $body['Token'] : null;
+            $token = isset($body['token']) ? $body['token'] : null;
         }
 
         return $token;
